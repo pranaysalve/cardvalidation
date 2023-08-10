@@ -2,12 +2,11 @@ import React, { useState, useContext, useEffect } from "react";
 import { CardCheckContext } from "@/service/cardcheck.context";
 
 export default function Home() {
-  const { isLoading, error, validation, CheckCard, validityMessage } =
+  const { isLoading, error, validation, CheckCard } =
     useContext(CardCheckContext);
 
   const [defaultValue, setDefaultValue] = useState();
 
-  const [message, setMessage] = useState();
   const [showAlert, setShowAlert] = useState(false);
   const handleChange = (e) => {
     setDefaultValue(e.target.value);
@@ -15,11 +14,9 @@ export default function Home() {
   const CheckCardValidation = () => {
     CheckCard(defaultValue);
     setShowAlert(true);
-    setMessage(validityMessage);
     setTimeout(() => {
       setShowAlert(false);
     }, 3000);
-    setMessage(validityMessage);
   };
 
   console.log({ validityMessage });
@@ -75,14 +72,16 @@ export default function Home() {
           <div className="absolute mt-44 w-max p-2 bg-white shadow-lg rounded-bl rounded-br max-h-56 overflow-y-auto">
             <div
               className={`p-4 mb-4 text-sm rounded-lg ${
-                validation
+                validation && validation
                   ? "text-green-800 bg-green-50 dark-blend-background:bg-gray-800 dark:text-green-400"
                   : "text-red-800 bg-red-50 dark-blend-background:bg-gray-800 dark:text-red-400"
               }`}
               role="alert"
             >
               <span className="font-medium">
-                {validation ? "Card is valid" : "Card is not valid"}
+                {validation && validation
+                  ? "Card is valid"
+                  : "Card is not valid"}
               </span>
             </div>
           </div>
