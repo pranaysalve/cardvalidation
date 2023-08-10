@@ -19,7 +19,6 @@ export default function Home() {
     }, 3000);
   };
 
-  console.log({ validityMessage });
   return (
     <>
       <div className="h-screen flex items-center justify-center">
