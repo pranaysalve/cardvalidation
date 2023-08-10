@@ -11,8 +11,8 @@ export default function Home() {
   const handleChange = (e) => {
     setDefaultValue(e.target.value);
   };
-  const CheckCardValidation = () => {
-    CheckCard(defaultValue);
+  const CheckCardValidation = async () => {
+    await CheckCard(defaultValue);
     setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
@@ -71,14 +71,14 @@ export default function Home() {
           <div className="absolute mt-44 w-max p-2 bg-white shadow-lg rounded-bl rounded-br max-h-56 overflow-y-auto">
             <div
               className={`p-4 mb-4 text-sm rounded-lg ${
-                validation && validation
+                validation === true
                   ? "text-green-800 bg-green-50 dark-blend-background:bg-gray-800 dark:text-green-400"
                   : "text-red-800 bg-red-50 dark-blend-background:bg-gray-800 dark:text-red-400"
               }`}
               role="alert"
             >
               <span className="font-medium">
-                {validation && validation
+                {validation !== undefined && validation === true
                   ? "Card is valid"
                   : "Card is not valid"}
               </span>

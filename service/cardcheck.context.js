@@ -5,7 +5,7 @@ export const CardCheckContext = createContext();
 export const CardCheckContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [validation, setValidation] = useState(false);
+  const [validation, setValidation] = useState();
 
   const CheckCard = (body) => {
     CardValidity(body)
