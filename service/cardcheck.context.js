@@ -8,6 +8,7 @@ export const CardCheckContextProvider = ({ children }) => {
   const [validation, setValidation] = useState();
 
   const CheckCard = (body) => {
+    setIsLoading(true);
     CardValidity(body)
       .then((res) => {
         setIsLoading(true);

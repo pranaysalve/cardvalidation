@@ -67,7 +67,7 @@ export default function Home() {
           </button>
         )}
 
-        {showAlert && (
+        {showAlert && !isLoading && (
           <div className="absolute mt-44 w-max p-2 bg-white shadow-lg rounded-bl rounded-br max-h-56 overflow-y-auto">
             <div
               className={`p-4 mb-4 text-sm rounded-lg ${
@@ -78,9 +78,7 @@ export default function Home() {
               role="alert"
             >
               <span className="font-medium">
-                {validation !== undefined && validation === true
-                  ? "Card is valid"
-                  : "Card is not valid"}
+                {validation === true ? "Card is valid" : "Card is not valid"}
               </span>
             </div>
           </div>
