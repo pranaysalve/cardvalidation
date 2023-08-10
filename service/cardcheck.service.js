@@ -1,4 +1,5 @@
-const BaseURL = "http://localhost:8282";
+// const BaseURL = "http://localhost:8282";
+const BaseURL = "https://luhnapidemo.onrender.com";
 
 export const CardValidity = async (body) => {
   return await fetch(`${BaseURL}/`, {
